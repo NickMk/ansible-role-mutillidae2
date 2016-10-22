@@ -7,11 +7,11 @@ An Ansible Role that installs Mutillidae 2.x on Debian/Ubuntu.
 None
 
 ## Example Playbook
-`
+```
   - hosts: mutillidae
     roles:
       - { role: nickmk.mutillidae }
-`    
+```    
 ## License
 
 MIT / BSD
