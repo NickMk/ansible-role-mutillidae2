@@ -1,6 +1,5 @@
 ---
 apache_service: apache2
-php_info: /var/www/html/phpinfo.php
 owner_perms: u+rw,g-w,o-rwx
 mutillidae_repo: git://git.code.sf.net/p/mutillidae/git
 mutillidae_install_path: /var/www/html/mutillidae
