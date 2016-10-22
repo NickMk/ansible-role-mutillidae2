@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Nicholas McKinney
+  description: Installs Mutillidae2 on a Ubuntu server
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+  galaxy_tags:
+    - pentest
+    - web
+    - mutillidae
+    - sqli
+    - xss
+    - owasp

@@ -1,0 +1,52 @@
+---
+
+- name: Creating Apache group...
+  group: name=apache
+
+- name: Creating Apache user...
+  user: name=apache groups=apache
+
+- name: Installing Apache2 
+  apt: name=apache2 update_cache=yes
+
+- name: Installing Apache2-utils 
+  apt: name=apache2-utils
+
+- name: Installing Git
+  apt: name=git
+
+- name: Installing directory config
+  copy: >
+    src=dir.conf dest=/etc/apache2/mods-enabled/dir.conf 
+    mode="u=rw,g=r,o=r"
+  notify: restart apache
+
+- name: Waiting for Apache daemon to start... 
+  wait_for: port=80 delay=5
+
+- name: Installing MySQL 
+  apt: name=mysql-server
+
+- name: Installing MySQL Apache mod
+  apt: name=libapache2-mod-auth-mysql
+
+- name: Installing PHP5
+  apt: name=php5
+
+- apt: name=php5-mysql
+
+- apt: name=php-pear
+
+- apt: name=php5-gd
+
+- apt: name=php5-mcrypt
+
+- apt: name=php5-curl
+
+- name: Setting up database...
+  shell: mysql_install_db
+
+- name: Pulling Mutillidae latest...
+  git: >
+    repo={{ mutillidae_repo }}
+    dest={{ mutillidae_install_path }}
